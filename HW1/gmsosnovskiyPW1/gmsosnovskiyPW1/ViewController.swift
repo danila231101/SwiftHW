@@ -38,16 +38,6 @@ class ViewController: UIViewController {
         let button = sender as? UIButton
         button?.isEnabled = false
         
-        var colorSet = Set<UIColor>()
-        var radiusSet = Set<CGFloat>()
-        
-        while colorSet.count < views.count {
-            let randomNumber: Int = .random(in: 0...16777215)
-            let hexString = String(format:"%06X", randomNumber)
-            colorSet.insert(UIColor(hex: hexString) ?? .clear)
-            radiusSet.insert(.random(in: 0...36))
-        }
-        
         UIView.animate(withDuration: 1, animations: {
             self.updateUI()
         }) { completion in
