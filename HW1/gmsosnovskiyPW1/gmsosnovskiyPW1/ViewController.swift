@@ -9,10 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet var views: [UIView]!
-    var isAnimating: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateUI()
     }
     
@@ -22,10 +22,15 @@ class ViewController: UIViewController {
         var radiusSet = Set<CGFloat>()
         
         while colorSet.count < views.count {
+            //generates decimal number between 000000 and FFFFFF
             let randomNumber: Int = .random(in: 0...16777215)
+            //converts number to hexadecimal string
             let hexString = String(format:"%06X", randomNumber)
-            colorSet.insert(UIColor(hex: hexString) ?? .clear)
-            radiusSet.insert(.random(in: 0...36))
+            guard let color = UIColor(hex: hexString) else {
+                continue
+            }
+            colorSet.insert(color)
+            radiusSet.insert(CGFloat.random(in: 0...32))
         }
         
         for view in self.views {
