@@ -14,6 +14,7 @@
 		4EDCF49628803DC4006B7D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDCF49428803DC4006B7D1C /* LaunchScreen.storyboard */; };
 		4EDCF49E2880A15A006B7D1C /* Color+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCF49D2880A15A006B7D1C /* Color+rgb.swift */; };
 		4EDCF4A02880A17A006B7D1C /* Layer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCF49F2880A17A006B7D1C /* Layer+Shadow.swift */; };
+		4EDCF4A42882DB15006B7D1C /* ColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCF4A32882DB15006B7D1C /* ColorPaletteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4EDCF49728803DC5006B7D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDCF49D2880A15A006B7D1C /* Color+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+rgb.swift"; sourceTree = "<group>"; };
 		4EDCF49F2880A17A006B7D1C /* Layer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layer+Shadow.swift"; sourceTree = "<group>"; };
+		4EDCF4A32882DB15006B7D1C /* ColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				4EDCF49728803DC5006B7D1C /* Info.plist */,
 				4EDCF49D2880A15A006B7D1C /* Color+rgb.swift */,
 				4EDCF49F2880A17A006B7D1C /* Layer+Shadow.swift */,
+				4EDCF4A32882DB15006B7D1C /* ColorPaletteView.swift */,
 			);
 			path = gmsosnovskiyPW2;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				4EDCF4A02880A17A006B7D1C /* Layer+Shadow.swift in Sources */,
 				4EDCF48A28803DC3006B7D1C /* AppDelegate.swift in Sources */,
 				4EDCF48C28803DC3006B7D1C /* SceneDelegate.swift in Sources */,
+				4EDCF4A42882DB15006B7D1C /* ColorPaletteView.swift in Sources */,
 				4EDCF49E2880A15A006B7D1C /* Color+rgb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

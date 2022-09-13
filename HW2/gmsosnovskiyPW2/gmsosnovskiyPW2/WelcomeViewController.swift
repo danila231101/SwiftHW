@@ -18,7 +18,7 @@ final class WelcomeViewController: UIViewController {
     private lazy var commentView = setupCommentView()
 
     let buttonsSV = UIStackView()
-    let colorControllersSV = UIStackView()
+    let colorPaletteView = ColorPaletteView()
 
     private var value: Int = 0
     private var red: CGFloat = UIColor.systemGray6.rgba.red
@@ -42,7 +42,7 @@ final class WelcomeViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
         commentView.isHidden = true
-        colorControllersSV.isHidden = true
+        colorPaletteView.isHidden = true
 
         setupIncrementButton()
         setupValueLabel()
@@ -143,28 +143,23 @@ final class WelcomeViewController: UIViewController {
     }
 
     private func setupColorControllersSV() {
-        colorControllersSV.isHidden = true
-
-        let redColorController = makeColorController(colorName: "red", colorSlider: redColorSlider)
-        let greenColorController = makeColorController(colorName: "green", colorSlider: greenColorSlider)
-        let blueColorController = makeColorController(colorName: "blue", colorSlider: blueColorSlider)
-
-        colorControllersSV.addArrangedSubview(redColorController)
-        colorControllersSV.addArrangedSubview(greenColorController)
-        colorControllersSV.addArrangedSubview(blueColorController)
-
-        colorControllersSV.spacing = 8
-        colorControllersSV.axis = .vertical
-        colorControllersSV.distribution = .fill
-
-        view.addSubview(colorControllersSV)
-        colorControllersSV.translatesAutoresizingMaskIntoConstraints = false
+        colorPaletteView.isHidden = true
+        view.addSubview(colorPaletteView)
+        colorPaletteView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            colorControllersSV.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            colorControllersSV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            colorControllersSV.bottomAnchor.constraint(equalTo: buttonsSV.topAnchor, constant: -24)
+            colorPaletteView.topAnchor.constraint(equalTo: incrementButton.bottomAnchor, constant: 24),
+            colorPaletteView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            colorPaletteView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            colorPaletteView.bottomAnchor.constraint(equalTo: buttonsSV.topAnchor, constant: -24)
         ])
+        colorPaletteView.addTarget(self, action: #selector(test(_:)), for: .touchDragInside)
+
+    }
+
+    @objc
+    private func test(_ slider: ColorPaletteView) {
+        self.view.backgroundColor = slider.chosenColor
     }
 
     // MARK: - Buttons creation
@@ -190,6 +185,7 @@ final class WelcomeViewController: UIViewController {
         let colorControllerSV = UIStackView(arrangedSubviews: [colorLabel, colorSlider])
         colorControllerSV.spacing = 12
         colorControllerSV.axis = .horizontal
+        colorControllerSV.alignment = .fill
         colorControllerSV.distribution = .fill
         colorControllerSV.backgroundColor = .white
         colorControllerSV.layer.cornerRadius = 12
@@ -246,7 +242,7 @@ final class WelcomeViewController: UIViewController {
         case 30...40:
             commentLabel.text = "4"
         case 40...50:
-            commentLabel.text = "nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice"
+            commentLabel.text = "🎉🎉🎉🎉🎉🎉🎉🎉🎉"
         case 50...60:
             commentLabel.text = "big boy"
         case 60...70:
@@ -254,7 +250,7 @@ final class WelcomeViewController: UIViewController {
         case 70...80:
             commentLabel.text = "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
         case 80...90:
-            commentLabel.text = "nine ty"
+            commentLabel.text = "80+\n go higher!"
         case 90...100:
             commentLabel.text = "100!! to the moon!!"
         default:
@@ -277,7 +273,7 @@ final class WelcomeViewController: UIViewController {
 
     @objc
     private func paletteButtonPressed() {
-        colorControllersSV.isHidden.toggle()
+        colorPaletteView.isHidden.toggle()
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
     }
